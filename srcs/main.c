@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:37:41 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 15:20:23 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/17 13:24:48 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(int argc, char const *argv[])
     swap_stacks(stack_a, stack_b);
     // ft_printf("swap a to b : \n");
     // display_stack_ab(stack_a, stack_b);
-    sorting_by_compare_b(stack_a, stack_b);
     // ft_printf("sorting by compare : \n");
     // display_stack_ab(stack_a, stack_b);
     return 0;

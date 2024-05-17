@@ -6,11 +6,52 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:23:49 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 15:13:40 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/17 13:28:08 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+
+int	find_median(t_stack *stacks)
+{
+	t_element	*current;
+	int			*tab;
+	int			i;
+	int			j;
+	int			temp;
+
+	if (!stacks)
+		exit(EXIT_FAILURE);	
+	tab = malloc(sizeof(int) * stack_len(stacks));
+	if (!tab)
+		exit(EXIT_FAILURE);
+	current = stacks->first;
+	i = 0;
+	while (current)
+	{
+		tab[i] = current->len;
+		current = current->next;
+		i++;
+	}
+	i = 0;
+	while (i < stack_len(stacks) - 1)
+	{
+		j = 0;
+		while (j < stack_len(stacks) - i)
+		{
+			if (tab[j] > tab[j + 1])
+			{
+				temp = tab[j];
+				tab[j] = tab[j + 1];
+				tab[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+	return(tab[stack_len(stacks) / 2]);
+}
 
 int	is_top_or_bottom(t_stack *stacks, int to_find)
 {
@@ -30,7 +71,6 @@ int	is_top_or_bottom(t_stack *stacks, int to_find)
 		current = current->next;
 		i++;
 	}
-	
 	return (-1);	
 }
 
@@ -71,15 +111,31 @@ int	is_the_biggest(t_stack *stacks, int	len)
 void	swap_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	t_element	*current;
+	int			median;
+
 
 	if (!stack_a || ! stack_b)
 		exit(EXIT_FAILURE);
+	median = find_median(stack_a);
 	current = stack_a->first;
 	while (current)
 	{
-		current = current->next;
-		push_b(stack_b, stack_a);
+		if (is_the_biggest(stack_a, current->len) && stack_len(stack_a) > 1)
+		{
+			current = current->next;
+			rotate_a(stack_a);
+		}
+		else if (stack_len(stack_a) > 1)
+		{
+			current = current->next;
+			push_b(stack_b, stack_a);
+			if (stack_b->first->len < median)
+				rotate_b(stack_b);
+		}
+		else
+			current = current->next;
 	}
+    sorting_by_compare_b(stack_a, stack_b);
 }
 
 void	larger_to_top(t_stack *stacks, int larger)
