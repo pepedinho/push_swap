@@ -6,14 +6,14 @@
 #    By: itahri <itahri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 16:42:32 by itahri            #+#    #+#              #
-#    Updated: 2024/05/16 18:49:37 by itahri           ###   ########.fr        #
+#    Updated: 2024/05/17 15:27:24 by itahri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
 SRCS = $(addprefix srcs/, args_management.c main.c sorting_funcs.c stack_func.c stack_func2.c stack_mouvement_reverse_swap.c \
-stack_mouvements_rotate.c stack_mouvement_swap.c stack_mouvements_push.c)
+stack_mouvements_rotate.c stack_mouvement_swap.c stack_mouvements_push.c sorting_funcs2.c)
 
 INCLUDES = ./includes -I ./libft/includes/
 

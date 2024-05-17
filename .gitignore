@@ -1,3 +1,4 @@
 .vscode/
 a.out
 push_swap_visualizer/
+*.o
