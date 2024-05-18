@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 22:39:08 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:37:56 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/18 14:31:00 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 typedef struct s_list
 {
