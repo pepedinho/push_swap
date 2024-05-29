@@ -6,11 +6,33 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:28:44 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 15:28:37 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 16:27:21 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
+
+int	is_sorted(t_stack *stacks)
+{
+	t_element *current;
+
+	current = stacks->first;
+	while (current)
+	{
+		if (current->next && (current->next->len < current->len))
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
+void	b_to_a(t_stack *stack_a, t_stack *stack_b)
+{
+	printf("debug B_TO_A\n");
+	while (stack_b->first)
+		push_a(stack_a, stack_b);
+}
 
 void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 {
@@ -19,6 +41,11 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 
 	index = 0;
 	stack_size = stack_len(stack_b);
+	if (is_sorted(stack_a))
+	{
+		b_to_a(stack_a, stack_b);
+		return ;
+	}
 	while (index < stack_size)
 	{
 		if ((stack_b->first->len >> (i + 1)) & 1)
@@ -29,11 +56,7 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 	}
 }
 
-void	b_to_a(t_stack *stack_a, t_stack *stack_b)
-{	
-	while (stack_b->first)
-		push_a(stack_a, stack_b);
-}
+
 
 int binary_len(int nb)
 {
@@ -47,6 +70,7 @@ int binary_len(int nb)
 	}
 	return (i);
 }
+
 
 void	radix(t_stack *stack_a, t_stack *stack_b)
 {
@@ -62,7 +86,7 @@ void	radix(t_stack *stack_a, t_stack *stack_b)
 	{
 		j = 0;
 		stack_size = stack_len(stack_a);
-		while (j < stack_size)
+		while (j < stack_size && !is_sorted(stack_a))
 		{
 			act_len = stack_a->first->len;
 			if ((act_len >> i) & 1)

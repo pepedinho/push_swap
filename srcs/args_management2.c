@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:59:58 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 14:06:35 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 15:42:44 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void  normalize_data_sort(t_stack *stacks)
 	current = stacks->first;
 	tab = malloc(sizeof(int) * stack_len(stacks));
 	if (!tab)
+	{
+		free(stacks);
 		exit(EXIT_FAILURE);
+	}
 	while (current)
 	{
 		tab[i] = current->len;
