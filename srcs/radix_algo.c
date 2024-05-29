@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:28:44 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 16:27:21 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 16:50:02 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	is_sorted(t_stack *stacks)
 
 void	b_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	printf("debug B_TO_A\n");
 	while (stack_b->first)
 		push_a(stack_a, stack_b);
 }
@@ -56,8 +55,6 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 	}
 }
 
-
-
 int binary_len(int nb)
 {
 	int	i;
@@ -70,7 +67,6 @@ int binary_len(int nb)
 	}
 	return (i);
 }
-
 
 void	radix(t_stack *stack_a, t_stack *stack_b)
 {

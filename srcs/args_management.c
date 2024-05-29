@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:45:36 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 15:40:49 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:04:02 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ int	check_repet(const char *argv[], int argc)
 		while (j < i - 1)
 		{
 			if (tab[j] == tab[i - 1])
-				return 1;
+				return (free(tab), 1);
 			j++;
 		}
 		i++;
 	}
+	free(tab);
 	return (0);	
 }
 
@@ -54,11 +55,43 @@ int	is_in_stack(t_stack *stacks, int to_find)
 	return (0);
 }
 
+int	check_validity(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			ft_printf("Error\n");
+			exit(EXIT_FAILURE);
+		}
+		if (str[i] == ' ')
+		{
+			ft_printf("Error\n");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	return (1);
+}
+
+void	check_args(const char *argv[], int argc)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+		check_validity(argv[i++]);
+}
+
 t_stack	*manage_args(const char *argv[], int argc)
 {
 	int		i;
 	t_stack	*stacks;
 
+	check_args(argv, argc);
 	stacks = init_stack();
 	i = argc - 1;
 	if (check_repet(argv, argc))

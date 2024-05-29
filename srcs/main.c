@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:37:41 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/18 18:15:59 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:02:20 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ int main(int argc, char const *argv[])
     t_stack *stack_a;
     t_stack *stack_b;
 
-    stack_b = init_stack();
     stack_a = manage_args(argv, argc);
+    stack_b = init_stack();
     //display_stack_ab(stack_a, stack_b);
     radix(stack_a, stack_b);
     // ft_printf("swap a to b : \n");
     // display_stack_ab(stack_a, stack_b);
     // ft_printf("sorting by compare : \n");
     // display_stack_ab(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
     return 0;
 }
 
