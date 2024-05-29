@@ -6,13 +6,13 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 14:43:15 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/15 18:08:13 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:44:04 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	swap(t_stack *stacks)
+static int	swap(t_stack *stacks)
 {
 	t_element	*first;
 	t_element	*second;
@@ -27,23 +27,30 @@ static void	swap(t_stack *stacks)
 	unstack(stacks);
 	second->len = stacks->first->len;
 	unstack(stacks);
-	stack(stacks, first->len);
-	stack(stacks, second->len);
+	if (stack(stacks, first->len))
+		return (0);
+	if (stack(stacks, second->len))
+		return (0);
 	free(first);
 	free(second);
+	return (1);
 }
 
 
-void	swap_a(t_stack *stack_a)
+int	swap_a(t_stack *stack_a)
 {
-	swap(stack_a);
+	if (swap(stack_a))
+		return (0);
 	ft_printf("sa\n");
+	return (1);
 }
 
-void	swap_b(t_stack *stack_b)
+int	swap_b(t_stack *stack_b)
 {
-	swap(stack_b);
+	if (swap(stack_b))
+		return (0);
 	ft_printf("sb\n");
+	return (1);
 }
 
 void	swap_ab(t_stack *stack_a, t_stack *stack_b)

@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:30:38 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 12:27:47 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:41:06 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "struct.h"
 
 //swap
-void	swap_a(t_stack *stack_a);
-void	swap_b(t_stack *stack_b);
+int		swap_a(t_stack *stack_a);
+int		swap_b(t_stack *stack_b);
 void	swap_ab(t_stack *stack_a, t_stack *stack_b);
 //push
 void	push_a(t_stack *stack_a, t_stack *stack_b);

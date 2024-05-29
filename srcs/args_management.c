@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:45:36 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:04:02 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:56:31 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ t_stack	*manage_args(const char *argv[], int argc)
 	t_stack	*stacks;
 
 	check_args(argv, argc);
-	stacks = init_stack();
-	i = argc - 1;
 	if (check_repet(argv, argc))
 		exit(EXIT_FAILURE);
+	stacks = init_stack();
+	i = argc - 1;
 	while (i > 0)
 	{
 		stack(stacks, ft_atoi(argv[i]));

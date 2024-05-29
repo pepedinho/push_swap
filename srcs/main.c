@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:37:41 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:02:20 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:30:53 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main(int argc, char const *argv[])
 
     stack_a = manage_args(argv, argc);
     stack_b = init_stack();
+	if (!stack_b)
+		return(free_stack(stack_a), 1);
     //display_stack_ab(stack_a, stack_b);
     radix(stack_a, stack_b);
     // ft_printf("swap a to b : \n");

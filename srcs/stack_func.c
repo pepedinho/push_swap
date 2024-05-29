@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:52:27 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/15 17:21:38 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:53:30 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,24 @@ t_stack	*init_stack()
 
 	stack = malloc(sizeof(*stack));
 	if (!stack)
-		exit(EXIT_FAILURE);
+		return (NULL);
 	stack->first = NULL;
 	return (stack);
 }
 
-void	stack(t_stack *stack, int new_len)
+int	stack(t_stack *stack, int new_len)
 {
 	t_element	*new;
 
+	if (!stack)
+		return (0);
 	new = malloc(sizeof(*new));
-	if (!stack || !new)
-		exit(EXIT_FAILURE);
+	if (!new)
+			return (0);
 	new->len = new_len;
 	new->next = stack->first;
 	stack->first = new;
+	return (1);
 }
 
 int	unstack(t_stack *stack)
