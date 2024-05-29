@@ -6,74 +6,11 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:28:44 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/18 20:58:03 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/29 15:28:37 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-
-static int	ft_strlen_free(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (free(str), i);
-}
-
-int	**sorting_tab(t_stack *stack_a)
-{
-	t_element	*current;
-	int			**tab;
-	char		*convert_elem;
-	int			i;
-	int			reference_len;
-	int			j;
-	
-	if (!stack_a)
-		exit(EXIT_FAILURE);
-	tab = malloc(sizeof(int *) * stack_len(stack_a));
-	if (!tab)
-		exit(EXIT_FAILURE);
-	i = 0;
-	reference_len = ft_strlen_free(ft_convert_base(ft_itoa(find_the_bigger(stack_a)), "0123456789", "01"));
-	while (i < stack_len(stack_a))
-	{
-		tab[i] = malloc(sizeof(int) * reference_len);
-		if (!tab[i])
-			exit(EXIT_FAILURE);
-		i++;
-	}
-	i = 0;
-	current = stack_a->first;
-	while (current)
-	{
-		j = 0;
-		reference_len = ft_strlen_free(ft_convert_base(ft_itoa(find_the_bigger(stack_a)), "0123456789", "01"));
-		convert_elem = ft_convert_base(ft_itoa(current->len), "0123456789", "01");
-		while (j < reference_len)
-		{
-			if (convert_elem[j])
-			{
-				if (convert_elem[j] == '0')
-					tab[i][j] = 0;
-				else
-					tab[i][j] = 1;
-			}
-			else
-				tab[i][j] = 0;
-			j++;
-		}
-		i++;
-		free(convert_elem);
-		current = current->next;
-	}
-	return (tab);
-}
 
 void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 {
@@ -93,8 +30,7 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 }
 
 void	b_to_a(t_stack *stack_a, t_stack *stack_b)
-{
-	
+{	
 	while (stack_b->first)
 		push_a(stack_a, stack_b);
 }

@@ -12,7 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-
 int main(int argc, char const *argv[])
 {
     t_stack *stack_a;
@@ -20,7 +19,7 @@ int main(int argc, char const *argv[])
 
     stack_b = init_stack();
     stack_a = manage_args(argv, argc);
-    // display_stack_ab(stack_a, stack_b);
+    //display_stack_ab(stack_a, stack_b);
     radix(stack_a, stack_b);
     // ft_printf("swap a to b : \n");
     // display_stack_ab(stack_a, stack_b);
