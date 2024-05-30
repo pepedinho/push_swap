@@ -36,7 +36,6 @@ static int	swap(t_stack *stacks)
 	return (1);
 }
 
-
 int	swap_a(t_stack *stack_a)
 {
 	if (swap(stack_a))

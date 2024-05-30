@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:28:44 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 16:50:02 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:49:46 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	is_sorted(t_stack *stacks)
 {
-	t_element *current;
+	t_element	*current;
 
 	current = stacks->first;
 	while (current)
@@ -47,7 +47,7 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 	}
 	while (index < stack_size)
 	{
-		if ((stack_b->first->len >> (i + 1)) & 1)
+		if ((stack_b->first->len >> (i)) & 1)
 			push_a(stack_a, stack_b);
 		else
 			rotate_b(stack_b);
@@ -55,7 +55,7 @@ void	remix(t_stack *stack_a, t_stack *stack_b, int i)
 	}
 }
 
-int binary_len(int nb)
+int	binary_len(int nb)
 {
 	int	i;
 
@@ -91,9 +91,8 @@ void	radix(t_stack *stack_a, t_stack *stack_b)
 				push_b(stack_b, stack_a);
 			j++;
 		}
-		if (i < reference_len - 1)
+		if (i++ < reference_len - 1)
 			remix(stack_a, stack_b, i);
-		i++;
 	}
 	b_to_a(stack_a, stack_b);
 }

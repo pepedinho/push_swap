@@ -15,7 +15,7 @@
 static void	rotate(t_stack	*stacks)
 {
 	t_element	*current;
-	
+
 	if (!stacks)
 		exit(EXIT_FAILURE);
 	else if (stack_len(stacks) <= 1)

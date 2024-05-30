@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:56 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 14:25:39 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:55:09 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct s_element
 {
-	int	len;
+	int					len;
 	struct s_element	*next;
-}				t_element;
+}						t_element;
 
 typedef struct s_stack
 {

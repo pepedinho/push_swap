@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:59:58 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:59:50 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:40:37 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	swap(int *tab1, int *tab2)
 	*tab2 = buff;
 }
 
-static void  normalize_loop(t_stack *stacks, int *tab)
+static void	normalize_loop(t_stack *stacks, int *tab)
 {
-	int		  i;
-	int		  j;
-	int		  stacks_len;
-	t_element *current;
+	int			i;
+	int			j;
+	int			stacks_len;
+	t_element	*current;
 
 	i = 0;
 	current = stacks->first;
@@ -50,13 +50,31 @@ static void  normalize_loop(t_stack *stacks, int *tab)
 	free (tab);
 }
 
-void  normalize_data_sort(t_stack *stacks)
+void	sorting_tab(int	*tab, int stacks_len)
 {
-	t_element *current;
-	int		  *tab;
-	int		  i;
-	int		  j;
-	int		  stacks_len;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < stacks_len)
+	{
+		j = 0;
+		while (j < stacks_len - 1)
+		{
+			if (tab[j] > tab[j + 1])
+				swap(&tab[j], &tab[j + 1]);
+			j++;
+		}
+		i++;
+	}	
+}
+
+void	normalize_data_sort(t_stack *stacks)
+{
+	t_element	*current;
+	int			*tab;
+	int			i;
+	int			stacks_len;
 
 	i = 0;
 	if (!stacks)
@@ -74,18 +92,7 @@ void  normalize_data_sort(t_stack *stacks)
 		i++;
 		current = current->next;
 	}
-	i = 0;
 	stacks_len = stack_len(stacks);
-	while (i < stacks_len)
-	{
-		j = 0;
-		while (j < stacks_len - 1)
-		{
-			if (tab[j] > tab[j + 1])
-				swap(&tab[j], &tab[j + 1]);
-			j++;
-		}
-		i++;
-	}
+	sorting_tab(tab, stacks_len);
 	normalize_loop(stacks, tab);
 }

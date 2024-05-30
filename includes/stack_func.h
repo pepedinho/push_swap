@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:53:05 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:34:38 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:45:53 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "push_swap.h"
 # include "struct.h"
 
-t_stack	*init_stack();
+t_stack	*init_stack(void);
 void	display_stack(t_stack *stack);
 void	display_stack_ab(t_stack *stack_a, t_stack *stack_b);
 int		stack(t_stack *stack, int new_len);

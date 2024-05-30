@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:45:36 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:56:31 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:47:51 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_repet(const char *argv[], int argc)
 {
 	int	i;
 	int	j;
-	int *tab;
+	int	*tab;
 
 	i = 1;
 	tab = malloc(sizeof(int) * argc);
@@ -35,19 +35,19 @@ int	check_repet(const char *argv[], int argc)
 		i++;
 	}
 	free(tab);
-	return (0);	
+	return (0);
 }
 
 int	is_in_stack(t_stack *stacks, int to_find)
 {
-	t_element *current;
-	int		  i;
+	t_element	*current;
+	int			i;
 
 	i = 0;
 	current = stacks->first;
 	while (current)
 	{
-		if (current->len ==  to_find)
+		if (current->len == to_find)
 			return (i);
 		current = current->next;
 		i++;
@@ -57,7 +57,7 @@ int	is_in_stack(t_stack *stacks, int to_find)
 
 int	check_validity(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

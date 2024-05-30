@@ -6,13 +6,13 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:52:27 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/29 18:53:30 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/30 12:46:16 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stack_func.h"
 
-t_stack	*init_stack()
+t_stack	*init_stack(void)
 {
 	t_stack		*stack;
 
@@ -31,7 +31,7 @@ int	stack(t_stack *stack, int new_len)
 		return (0);
 	new = malloc(sizeof(*new));
 	if (!new)
-			return (0);
+		return (0);
 	new->len = new_len;
 	new->next = stack->first;
 	stack->first = new;
@@ -42,7 +42,7 @@ int	unstack(t_stack *stack)
 {
 	int			stack_nb;
 	t_element	*to_unstack;
-	
+
 	if (!stack)
 		exit(EXIT_FAILURE);
 	stack_nb = 0;
