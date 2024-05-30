@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: itahri <itahri@contact.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:58:07 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:45:54 by itahri           ###   ########.fr       */
+/*   Updated: 2024/05/20 23:23:30 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -18,11 +18,14 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n == -2147483648)
 	{
-		write(fd, "-2147483648", 12);
+		write(fd, "-2147483648", 11);
 		return ;
 	}
 	if (n < 0)
+	{
+		write(fd, "-", 1);
 		n = -n;
+	}
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
 	nbr = (n % 10) + '0';

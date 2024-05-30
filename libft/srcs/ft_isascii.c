@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: itahri <itahri@contact.42.fr>              #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 20:38:10 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:45:54 by itahri           ###   ########.fr       */
+/*   Created: 2024-03-22 20:38:10 by itahri            #+#    #+#             */
+/*   Updated: 2024-03-22 20:38:10 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

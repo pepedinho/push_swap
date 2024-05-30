@@ -3,30 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: itahri <itahri@contact.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:21:20 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:45:54 by itahri           ###   ########.fr       */
+/*   Updated: 2024/03/23 18:58:02 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	*ft_calloc(size_t nmeb, size_t size)
 {
 	char	*ptr;
 	size_t	i;
 
+	if (((long int)nmeb * (long int)size) < 0)
+		return (NULL);
+	else if (nmeb >= U_INT_MAX || size >= U_INT_MAX)
+		return (NULL);
 	ptr = malloc(size * nmeb);
 	if (ptr == NULL)
 		return (NULL);
-	if (nmeb == 0 || size == 0)
-		return (NULL);
 	i = 0;
 	while (i < nmeb * size)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+		ptr[i++] = '\0';
 	return ((void *)ptr);
 }

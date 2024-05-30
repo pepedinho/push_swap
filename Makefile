@@ -6,7 +6,7 @@
 #    By: itahri <itahri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 16:42:32 by itahri            #+#    #+#              #
-#    Updated: 2024/05/29 15:43:14 by itahri           ###   ########.fr        #
+#    Updated: 2024/05/30 13:28:36 by itahri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ all : $(NAME)
 
 clean:
 	rm -f $(OBJS)
+	make clean -C ./libft
 
 fclean: clean
 	rm -f $(NAME)

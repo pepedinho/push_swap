@@ -1,8 +1,8 @@
 NAME = libft.a
 
-SRCS = default_utils.c ft_printf.c mandatory_func2.c minus_utils.c utils.c utils3.c \
-      default_utils2.c len_functions.c mandatory_funcs.c minus_utils2.c utils2.c \
-	  ft_atoi.c \
+INCLUDES = -I./includes
+
+SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_calloc.c \
 	   ft_isalnum.c \
@@ -21,6 +21,7 @@ SRCS = default_utils.c ft_printf.c mandatory_func2.c minus_utils.c utils.c utils
 	   ft_strlcpy.c \
 	   ft_strlen.c \
 	   ft_strncmp.c \
+	   ft_strnstr.c \
 	   ft_strrchr.c \
 	   ft_strstr.c \
 	   ft_substr.c \
@@ -37,30 +38,37 @@ SRCS = default_utils.c ft_printf.c mandatory_func2.c minus_utils.c utils.c utils
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
 	   ft_lstnew_bonus.c \
-		ft_lstadd_front_bonus.c \
-		ft_lstnew_bonus.c \
-		ft_lstlast_bonus.c \
-		ft_lstadd_back_bonus.c \
-		ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c \
-		ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c \
+	   ft_lstadd_front_bonus.c \
+	   ft_lstnew_bonus.c \
+	   ft_lstlast_bonus.c \
+	   ft_lstadd_back_bonus.c \
+	   ft_lstdelone_bonus.c \
+	   ft_lstclear_bonus.c \
+	   ft_lstiter_bonus.c \
+	   ft_lstmap_bonus.c \
+	   ft_lstsize_bonus.c \
+	   car_fr.c ft_printf.c \
+	   hex_fr.c \
+	   int_fr.c \
+	   mem_fr.c \
+	   monitoring.c \
+	   putnbr.c \
+	   str_fr.c \
+	   uns_fr.c \
+	   len_functions.c \
 
 SRCS := $(addprefix srcs/,$(SRCS))
 
-# Concaténation des fichiers source de base et supplémentaires
-
-OBJS = $(SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-
-all: $(NAME) clean
+CFLAGS = -Wall -Wextra -Werror -g3
+OBJS = $(SRCS:.c=.o)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(ALL_OBJS)
@@ -70,4 +78,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re re_bonus
+.PHONY: all clean fclean re

@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 16:17:59 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:45:05 by itahri           ###   ########.fr       */
+/*   Created: 2024/05/25 15:51:41 by itahri            #+#    #+#             */
+/*   Updated: 2024/05/30 13:25:51 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	hexa_len(long long int nbr)
+int	convert_len(long long int nbr, char *base)
 {
-	int				len;
-	long long int	temp;
+	int	i;
+	int	base_len;
 
-	temp = nbr;
-	len = 0;
-	while (temp != 0)
+	i = 0;
+	base_len = ft_strlen(base);
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0)
+		i++;
+	while (nbr != 0)
 	{
-		temp = temp / 16;
-		len++;
+		nbr /= base_len;
+		i++;
 	}
-	return (len);
+	return (i);
 }
 
 int	dec_len(unsigned int nbr)
@@ -34,28 +38,6 @@ int	dec_len(unsigned int nbr)
 
 	temp = nbr;
 	len = 0;
-	while (temp != 0)
-	{
-		temp = temp / 10;
-		len++;
-	}
-	return (len);
-}
-
-int	dec_len_all(int nbr)
-{
-	int	len;
-	int	temp;
-
-	temp = nbr;
-	len = 0;
-	if (temp == -2147483648)
-		return (11);
-	if (temp < 0)
-	{
-		temp = -temp;
-		len++;
-	}
 	while (temp != 0)
 	{
 		temp = temp / 10;

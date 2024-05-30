@@ -3,34 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: itahri <itahri@contact.42.fr>              #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/23 02:14:33 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/16 17:45:54 by itahri           ###   ########.fr       */
+/*   Created: 2024-03-23 02:14:33 by itahri            #+#    #+#             */
+/*   Updated: 2024-03-23 02:14:33 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	int		buff;
+	int		last_index;
 	char	*ptr;
+	char	cast_c;
 
 	i = 0;
-	buff = i;
-	ptr = NULL;
-	while (s[i])
+	last_index = -1;
+	ptr = (char *)s;
+	cast_c = (char)c;
+	while (ptr[i])
 	{
-		if (s[i] == c)
-			buff = i;
+		if (ptr[i] == cast_c)
+			last_index = i;
 		i++;
 	}
-	if (buff)
-	{
-		ptr = (char *)&s[buff];
-		return (ptr);
-	}
+	if (last_index >= 0)
+		return (&ptr[last_index]);
+	if (ptr[i] == cast_c)
+		return (&ptr[i]);
 	return (NULL);
 }
