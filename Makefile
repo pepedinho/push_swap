@@ -6,7 +6,7 @@
 #    By: itahri <itahri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 16:42:32 by itahri            #+#    #+#              #
-#    Updated: 2024/05/30 13:28:36 by itahri           ###   ########.fr        #
+#    Updated: 2024/06/14 16:27:13 by itahri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,16 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 NAME = push_swap
 
+all : $(LIBFT) $(NAME)
+
 %.o : %.c
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c  $< -o $@ 
 
 $(LIBFT):
 	make -C ./libft
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME):  $(OBJS)
 	$(CC) $(CFLAGS) -I $(INCLUDES)  $(OBJS) -o $(NAME) -L$(LIB_DIR) -lft 
-
-all : $(NAME)
 
 clean:
 	rm -f $(OBJS)
