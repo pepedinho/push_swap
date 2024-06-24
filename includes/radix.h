@@ -15,5 +15,6 @@
 # include "struct.h"
 
 void	radix(t_stack *stack_a, t_stack *stack_b);
+int	is_sorted(t_stack *stacks);
 
 #endif

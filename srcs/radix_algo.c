@@ -70,11 +70,11 @@ int	binary_len(int nb)
 
 void	radix(t_stack *stack_a, t_stack *stack_b)
 {
-	int			reference_len;
-	int			i;
-	int			j;
-	int			act_len;
-	int			stack_size;
+	int	reference_len;
+	int	i;
+	int	j;
+	int	act_len;
+	int	stack_size;
 
 	reference_len = binary_len(find_the_bigger(stack_a));
 	i = 0;

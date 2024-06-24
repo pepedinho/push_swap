@@ -15,5 +15,6 @@
 # include "push_swap.h"
 
 int		find_the_bigger(t_stack *stacks);
+int	is_the_biggest(t_stack *stacks, int len);
 
 #endif

@@ -47,10 +47,10 @@ static void	normalize_loop(t_stack *stacks, int *tab)
 		}
 		i++;
 	}
-	free (tab);
+	free(tab);
 }
 
-void	sorting_tab(int	*tab, int stacks_len)
+void	sorting_tab(int *tab, int stacks_len)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ void	sorting_tab(int	*tab, int stacks_len)
 			j++;
 		}
 		i++;
-	}	
+	}
 }
 
 void	normalize_data_sort(t_stack *stacks)

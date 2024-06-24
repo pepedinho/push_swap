@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static void	rotate(t_stack	*stacks)
+static void	rotate(t_stack *stacks)
 {
 	t_element	*current;
 
@@ -30,7 +30,7 @@ static void	rotate(t_stack	*stacks)
 	current->next->next = NULL;
 }
 
-void	rotate_a(t_stack	*stack_a)
+void	rotate_a(t_stack *stack_a)
 {
 	rotate(stack_a);
 	ft_printf("ra\n");
