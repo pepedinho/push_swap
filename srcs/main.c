@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:37:41 by itahri            #+#    #+#             */
-/*   Updated: 2024/06/24 18:18:52 by itahri           ###   ########.fr       */
+/*   Updated: 2024/06/24 20:15:34 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,11 @@ int	main(int argc, char const *argv[])
 	if (!stack_b)
 		return (free_stack(stack_a), 1);
 	if (stack_len(stack_a) <= 3)
-		return (for_three(stack_a));
+		for_three(stack_a);
 	else if (stack_len(stack_a) <= 5)
-		return (sequencial_sort(stack_a, stack_b));
-	radix(stack_a, stack_b);
+		sequencial_sort(stack_a, stack_b);
+	else
+		radix(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
