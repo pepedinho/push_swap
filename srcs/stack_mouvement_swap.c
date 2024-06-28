@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 14:43:15 by itahri            #+#    #+#             */
-/*   Updated: 2024/06/28 17:53:11 by itahri           ###   ########.fr       */
+/*   Updated: 2024/06/28 17:57:05 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	swap(t_stack *stacks)
 	if (stack(stacks, first->len))
 		return (free(first), free(second), 0);
 	if (stack(stacks, second->len))
-		return (0);
+		return (free(first), free(second), 0);
 	free(first);
 	free(second);
 	return (1);

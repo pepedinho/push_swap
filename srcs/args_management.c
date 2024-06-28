@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:45:36 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/30 12:47:51 by itahri           ###   ########.fr       */
+/*   Updated: 2024/06/28 18:49:00 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	check_validity(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '-')
 		{
 			ft_printf("Error\n");
 			exit(EXIT_FAILURE);
