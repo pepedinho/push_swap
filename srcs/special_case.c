@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:52:35 by itahri            #+#    #+#             */
-/*   Updated: 2024/07/04 18:56:03 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/04 21:01:13 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,41 @@ int	is_the_smallest(t_stack *stacks, int len)
 	while (current)
 	{
 		if (len > current->len)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
+int	is_the_smallest_minus(t_stack *stacks, int len)
+{
+	t_element	*current;
+
+	if (!stacks)
+		exit(EXIT_FAILURE);
+	current = stacks->first;
+	while (current)
+	{
+		if (current->len < 0)
+		{
+			if (-len < -current->len)
+				return (0);
+		}
+		current = current->next;
+	}
+	return (1);
+}
+
+int	is_the_smallest_pos(t_stack *stacks, int len)
+{
+	t_element	*current;
+
+	if (!stacks)
+		exit(EXIT_FAILURE);
+	current = stacks->first;
+	while (current)
+	{
+		if (len > current->len && current->len >= 0)
 			return (0);
 		current = current->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:59:58 by itahri            #+#    #+#             */
-/*   Updated: 2024/07/04 19:24:21 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/04 21:08:25 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,6 @@ static void	swap(int *tab1, int *tab2)
 	buff = *tab1;
 	*tab1 = *tab2;
 	*tab2 = buff;
-}
-
-int	abso(int nbr, t_stack *stacks)
-{
-	t_element	*current;
-
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		current = stacks->first;
-		while (current)
-		{
-			if (current->len == nbr)
-			{
-				nbr = find_the_bigger(stacks) + 1;
-				break ;
-			}
-			current = current->next;
-		}
-	}
-	ft_printf("nbr : %d\n", nbr);
-	return (nbr);
 }
 
 static void	normalize_loop(t_stack *stacks, int *tab)
@@ -66,7 +44,7 @@ static void	normalize_loop(t_stack *stacks, int *tab)
 			}
 			if (i > 0)
 				tab[i] = tab[i - 1] + 1;
-			current->len = abso(tab[i], stacks);
+			current->len = tab[i];
 		}
 		i++;
 	}
@@ -116,5 +94,5 @@ void	normalize_data_sort(t_stack *stacks)
 	}
 	stacks_len = stack_len(stacks);
 	sorting_tab(tab, stacks_len);
-	(normalize_loop(stacks, tab), free(tab));
+	(normalize_loop(stacks, tab), abso_loop(stacks), free(tab));
 }
