@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:54:03 by itahri            #+#    #+#             */
-/*   Updated: 2024/05/30 12:57:09 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/04 18:54:47 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,10 @@
 # include "args_management.h"
 # include "sorting_func.h"
 # include "radix.h"
+
+// special case
+void	sa_o_ra(t_stack *stack_a);
+int	for_three(t_stack *stack_a);
+int	is_the_smallest(t_stack *stacks, int len);
 
 #endif

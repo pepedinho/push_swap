@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:59:58 by itahri            #+#    #+#             */
-/*   Updated: 2024/06/28 19:04:34 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/04 19:24:21 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static void	normalize_loop(t_stack *stacks, int *tab)
 		}
 		i++;
 	}
-	free(tab);
 }
 
 void	sorting_tab(int *tab, int stacks_len)
@@ -73,7 +72,7 @@ void	sorting_tab(int *tab, int stacks_len)
 int	abso(int nbr, t_stack *stacks)
 {
 	t_element	*current;
-	
+
 	if (nbr < 0)
 	{
 		nbr = -nbr;
@@ -113,5 +112,5 @@ void	normalize_data_sort(t_stack *stacks)
 	}
 	stacks_len = stack_len(stacks);
 	sorting_tab(tab, stacks_len);
-	normalize_loop(stacks, tab);
+	(normalize_loop(stacks, tab), free(tab));
 }
