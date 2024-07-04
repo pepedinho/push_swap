@@ -21,6 +21,28 @@ static void	swap(int *tab1, int *tab2)
 	*tab2 = buff;
 }
 
+int	abso(int nbr, t_stack *stacks)
+{
+	t_element	*current;
+
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		current = stacks->first;
+		while (current)
+		{
+			if (current->len == nbr)
+			{
+				nbr = find_the_bigger(stacks) + 1;
+				break ;
+			}
+			current = current->next;
+		}
+	}
+	ft_printf("nbr : %d\n", nbr);
+	return (nbr);
+}
+
 static void	normalize_loop(t_stack *stacks, int *tab)
 {
 	int			i;
@@ -44,7 +66,7 @@ static void	normalize_loop(t_stack *stacks, int *tab)
 			}
 			if (i > 0)
 				tab[i] = tab[i - 1] + 1;
-			current->len = tab[i];
+			current->len = abso(tab[i], stacks);
 		}
 		i++;
 	}
@@ -69,24 +91,6 @@ void	sorting_tab(int *tab, int stacks_len)
 	}
 }
 
-int	abso(int nbr, t_stack *stacks)
-{
-	t_element	*current;
-
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		current = stacks->first;
-		while (current)
-		{
-			if (current->len == nbr)
-				nbr = find_the_bigger(stacks) + 1;
-			current = current->next;
-		}
-	}
-	return (nbr);
-}
-
 void	normalize_data_sort(t_stack *stacks)
 {
 	t_element	*current;
@@ -106,7 +110,7 @@ void	normalize_data_sort(t_stack *stacks)
 	}
 	while (current)
 	{
-		tab[i] = abso(current->len, stacks);
+		tab[i] = current->len;
 		i++;
 		current = current->next;
 	}
