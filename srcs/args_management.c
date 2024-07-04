@@ -62,7 +62,7 @@ int	check_validity(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != '-')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '-' && str[i] != '+')
 		{
 			ft_printf("Error\n");
 			exit(EXIT_FAILURE);
@@ -72,6 +72,8 @@ int	check_validity(const char *str)
 			ft_printf("Error\n");
 			exit(EXIT_FAILURE);
 		}
+		if (i > 0 && (str[i] == '-' || str[i] == '+'))
+			(ft_printf("Error\n"), exit(EXIT_FAILURE));
 		i++;
 	}
 	return (1);

@@ -72,6 +72,7 @@ int	main(int argc, char const *argv[])
 	stack_b = init_stack();
 	if (!stack_b)
 		return (free_stack(stack_a), 1);
+	display_stack(stack_a);
 	if (stack_len(stack_a) == 2)
 		for_two(stack_a);
 	else if (stack_len(stack_a) == 3)
