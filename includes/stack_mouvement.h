@@ -15,18 +15,18 @@
 # include "push_swap.h"
 # include "struct.h"
 
-//swap
+// swap
 int		swap_a(t_stack *stack_a);
 int		swap_b(t_stack *stack_b);
 void	swap_ab(t_stack *stack_a, t_stack *stack_b);
-//push
+// push
 void	push_a(t_stack *stack_a, t_stack *stack_b);
 void	push_b(t_stack *stack_b, t_stack *stack_a);
-//rotate
-void	rotate_a(t_stack	*stack_a);
-void	rotate_b(t_stack	*stack_b);
+// rotate
+void	rotate_a(t_stack *stack_a);
+void	rotate_b(t_stack *stack_b);
 void	rotate_r(t_stack *stack_a, t_stack *stack_b);
-//reverse rotate
+// reverse rotate
 void	reverse_rotate_a(t_stack *stack_a);
 void	reverse_rotate_b(t_stack *stack_b);
 void	reverse_rotate_ab(t_stack *stack_a, t_stack *stack_b);

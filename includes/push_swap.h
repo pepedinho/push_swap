@@ -13,16 +13,16 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/includes/libft.h"
+# include "args_management.h"
+# include "radix.h"
+# include "sorting_func.h"
 # include "stack_func.h"
 # include "stack_mouvement.h"
-# include "struct.h" 
-# include "args_management.h"
-# include "sorting_func.h"
-# include "radix.h"
+# include "struct.h"
 
 // special case
 void	sa_o_ra(t_stack *stack_a);
-int	for_three(t_stack *stack_a);
-int	is_the_smallest(t_stack *stacks, int len);
+int		for_three(t_stack *stack_a);
+int		is_the_smallest(t_stack *stacks, int len);
 
 #endif

@@ -21,7 +21,7 @@ typedef struct s_element
 
 typedef struct s_stack
 {
-	t_element	*first;
-}				t_stack;
+	t_element			*first;
+}						t_stack;
 
 #endif
