@@ -73,5 +73,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //cursus added functions
 int		dec_len(unsigned int nbr);
+long int ft_atol(const char *nptr);
 
 #endif

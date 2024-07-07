@@ -38,9 +38,9 @@ int	sequencial_sort(t_stack *s_a, t_stack *s_b)
 		if (s_a->first->len == min_len)
 		{
 			push_b(s_b, s_a);
-			min_len = s_a->first->len;
+			min_len = find_the_smallest(s_a);
 		}
-		else if (s_a->first->len == min_len + 1 && init_len == 5)
+		else if (s_a->first->len == min_len && init_len == 5)
 			push_b(s_b, s_a);
 		else
 			rotate_a(s_a);

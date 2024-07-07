@@ -29,7 +29,7 @@ int	check_repet(const char *argv[], int argc)
 		while (j < i - 1)
 		{
 			if (tab[j] == tab[i - 1])
-				return (free(tab), 1);
+				return (free(tab), ft_printf("Error\n"), 1);
 			j++;
 		}
 		i++;
@@ -76,6 +76,8 @@ int	check_validity(const char *str)
 			(ft_printf("Error\n"), exit(EXIT_FAILURE));
 		i++;
 	}
+	if (ft_atol(str) > 2147483647 || (ft_atol(str) < 0 && ft_atol(str) < -2147483648))
+		(ft_printf("Error\n", ft_atol(str)), exit(EXIT_FAILURE));
 	return (1);
 }
 

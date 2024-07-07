@@ -46,3 +46,31 @@ int	ft_atoi(const char *nptr)
 		result = -result;
 	return (result);
 }
+
+long int ft_atol(const char *nptr)
+{
+	int	i;
+	long int	result;
+	int	is_negative;
+
+	i = 0;
+	result = 0;
+	is_negative = 0;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			is_negative = 1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result *= 10;
+		result += nptr[i] - '0';
+		i++;
+	}
+	if (is_negative)
+		result = -result;
+	return (result);
+}
