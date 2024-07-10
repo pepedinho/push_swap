@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:45:36 by itahri            #+#    #+#             */
-/*   Updated: 2024/06/28 18:49:00 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/10 14:39:28 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int	check_validity(const char *str)
 			(ft_printf("Error\n"), exit(EXIT_FAILURE));
 		i++;
 	}
-	if (ft_atol(str) > 2147483647 || (ft_atol(str) < 0 && ft_atol(str) < -2147483648))
+	if (ft_atol(str) > 2147483647 || (ft_atol(str) < 0 && ft_atol(str)
+			< -2147483648))
 		(ft_printf("Error\n", ft_atol(str)), exit(EXIT_FAILURE));
 	return (1);
 }

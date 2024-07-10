@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:52:35 by itahri            #+#    #+#             */
-/*   Updated: 2024/07/04 21:01:13 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/10 14:36:50 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int	is_the_smallest_minus(t_stack *stacks, int len)
 	current = stacks->first;
 	while (current)
 	{
-		if (current->len < 0)
+		if (current->len < 0 && current->len != len)
 		{
-			if (-len < -current->len)
+			if ((long int)-len < (long int)-current->len)
 				return (0);
 		}
 		current = current->next;

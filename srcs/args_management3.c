@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args_managements3.c                                :+:      :+:    :+:   */
+/*   args_management3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 21:07:25 by itahri            #+#    #+#             */
-/*   Updated: 2024/07/04 21:10:44 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/10 14:38:32 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	abso(int nbr, t_stack *stacks)
 	{
 		bol = minus_elem_cnt(stacks);
 		while (i++ < bol)
-			step_up_all(stacks);
+			(step_up_all(stacks), nbr++);
 	}
 	if (nbr < 0)
 	{
