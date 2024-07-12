@@ -6,7 +6,7 @@
 /*   By: itahri <itahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:37:41 by itahri            #+#    #+#             */
-/*   Updated: 2024/07/10 14:39:52 by itahri           ###   ########.fr       */
+/*   Updated: 2024/07/12 17:34:40 by itahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char const *argv[])
 	t_stack	*stack_b;
 
 	if (argc < 2)
-		return (-1);
+		return (0);
 	else if (argc == 2)
 		return (check_args(argv, argc), 0);
 	stack_a = manage_args(argv, argc);
